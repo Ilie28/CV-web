@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Sweatshirt</title>
+</head>
+
+<section layout:fragment="content">
+
+	<body>
+		<h2 class="text-center">Add Sweatshirt</h2>
+		<form action="/addSweatshirts" th:object="${sweatshirt}" class="form"
+			method="post">
+
+			<div class="alert alert-danger"
+				th:if="${! #fields.errors('all').isEmpty()}">
+				<li th:each="e : ${#fields.detailedErrors()}"
+					th:class="${e.global}? globalerr : fielderr"><span
+					th:text="${e.global}? '*' : ${e.fieldName}">The field name</span> <span
+					th:text="${e.message}">The error message</span></li>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-6">
+					<label>Name</label> 
+					<input class="form-control" name="name" th:value="${sweatshirt?.name}" />
+				</div>
+				<div class="form-group col-6">
+					<label>Price</label> 
+					<input class="form-control" name="price" th:value="${sweatshirt?.price}" />
+				</div>
+			</div>
+			<div class="form-group col-6">
+					<label>Quantity</label> 
+					<input class="form-control" name="quantity" th:value="${sweatshirt?.quantity}" />
+				</div>
+			</div>
+			<div class="form-group col-6">
+					<label>Size</label> 
+					<input class="form-control" name="size" th:value="${sweatshirt?.size}" />
+				</div>
+			</div>
+			<div class="form-group col-6">
+					<label>Color</label> 
+					<input class="form-control" name="color" th:value="${sweatshirt?.color}" />
+				</div>
+			</div>
+			<div class="form-group col-6">
+					<label>Gender</label> 
+					<input class="form-control" name="gender" th:value="${sweatshirt?.gender}" />
+				</div>
+			</div>
+	
+			<div class="row">
+				<div class="col">
+					<button type="submit" class="btn btn-success btn-block">Add Product</button>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

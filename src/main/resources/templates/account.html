@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Account</title>
+</head>
+<body>
+
+	<h2>Account</h2>
+
+	<ul>
+		<li th:each="account : ${accounts}">
+			<span th:text="${account.firstName}">Default</span>
+			<span th:text="${account.lastName}">Default</span> 
+			<span th:text="${account.phoneNumber}">Default</span> 
+		</li>
+	</ul>
+</body>
+</html>
